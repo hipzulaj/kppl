@@ -1,15 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
+-- version 4.6.5.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 28, 2017 at 05:04 AM
--- Server version: 10.1.28-MariaDB
--- PHP Version: 7.1.10
+-- Generation Time: Dec 06, 2017 at 03:20 AM
+-- Server version: 10.1.21-MariaDB
+-- PHP Version: 5.6.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -19,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `fp_pbw`
+-- Database: `yummy`
 --
 
 -- --------------------------------------------------------
@@ -90,7 +88,7 @@ INSERT INTO `menu` (`id_menu`, `nama_menu`, `gambar`, `deskripsi`, `harga`, `tim
 ('MENU001', 'AYAM SAUS BLACKPEPPER', 'yummyblackpep.JPG', 'Variasi nasi ayam yang dilumuri bumbu lada hitam yang nikmat, dengan sayur-mayur berupa wortel dan juga terdapat mayonaise untuk menambah cita rasa.', 8000, '1496113839'),
 ('MENU002', 'AYAM SAUS BOLOGNESE', 'yummybolog.JPG', 'Variasi nasi ayam yang dilumuri bumbu bolognese seperti pada spaghetti, dengan sayur-mayur berupa wortel, buncis, dan jagung serta terdapat mayonaise untuk menambah cita rasa.', 8000, '1496113947'),
 ('MENU003', 'AYAM SAUS INGGRIS SPESIAL', 'yummyinggris.JPG', 'Variasi nasi ayam yang dilumuri saus inggris serta dengan nasi merah yang enak, dilengkapi dengan sayur-mayur berupa wortel, buncis, dan jagung, serta terdapat mayonaise untuk menambah cita rasa.', 8000, '1496122563'),
-('MENU004', 'AYAM CABE GARAM', 'yummycabe.JPG', 'Variasi nasi ayam yang ditaburi oleh cabe dan garam, menghasilkan perpaduan rasa pedas dan asin yang tidak pernah terbayangkan sebelumnya dan membuat ketagihan.', 12000, '1496114884');
+('MENU004', 'AYAM CABE CABEAN', 'yummycabe.JPG', 'Variasi nasi ayam yang ditaburi oleh cabe dan garam, menghasilkan perpaduan rasa pedas dan asin yang tidak pernah terbayangkan sebelumnya dan membuat ketagihan.', 12000, '1512449291');
 
 -- --------------------------------------------------------
 
@@ -116,7 +114,10 @@ INSERT INTO `pesanan` (`id_pesanan`, `nama_pemesan`, `no_telp`, `alamat`, `menu`
 ('1496067618', 'Gilang', '0888', 'Jalan jalan', 'AYAM SIRAM', 5, 40000),
 ('1496067660', 'Gilang lagi', '088888', 'jalan', 'CHICKEN BALLS', 7, 49000),
 ('1496068927', 'Gilang is back', '088801762650', 'Penjaringan Timur V / PD-33', 'UDANG KATSU', 8, 64000),
-('1496122662', 'Umar', '0888111', 'Jalan Keputih', 'AYAM SAUS BLACKPEPPER', 1, 8000);
+('1496122662', 'Umar', '0888111', 'Jalan Keputih', 'AYAM SAUS BLACKPEPPER', 1, 8000),
+('1512448297', 'NJUL', '+62 82231376570', 'dimana aja bole', 'AYAM SAUS BLACKPEPPER', 5000, 40000000),
+('1512449241', 'Paujan', '+62 82231376570', 'dimana aja bole', 'AYAM SAUS INGGRIS SPESIAL', 50000, 400000000),
+('1512449479', 'SINSIN', '+62 82231376570', 'jalan jalan sore', 'AYAM CABE CABEAN', 1000, 12000000);
 
 --
 -- Indexes for dumped tables
@@ -145,7 +146,6 @@ ALTER TABLE `menu`
 --
 ALTER TABLE `pesanan`
   ADD PRIMARY KEY (`id_pesanan`);
-COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
