@@ -36,7 +36,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="<?php echo base_url().'Ctrl_admin/index'?>">YUMMY</a>
+                <a class="navbar-brand" href="<?php echo base_url().'user/index'?>">YUMMY</a>
             </div>
             <!-- /.navbar-header -->
 
@@ -45,10 +45,13 @@
                   <span>Welcome, <?php echo $this->session->userdata('username'); ?>!</span>
                 </li>
                 <li>
+                    <a href="<?php echo site_url('MyController/index')?>" title="HOME">HOME</a>
+                </li>
+                <li>
                     <a href="<?php echo base_url().'Ctrl_admin/change_password'?>" title="Ganti Password"><i class="fa fa-edit fa-fw"></i></a>
                 </li>
                 <li>
-                    <a href="<?php echo base_url().'Ctrl_admin/logout'?>" title="Keluar"><i class="fa fa-power-off fa-fw"></i></a>
+                    <a href="<?php echo base_url().'login_user/logout'?>" title="Keluar"><i class="fa fa-power-off fa-fw"></i></a>
                 </li>
             </ul>
             <!-- /.navbar-top-links -->
@@ -58,23 +61,6 @@
                     <ul class="nav" id="side-menu">
                         <li>
                             <a href="<?php echo base_url().'Ctrl_admin/index'?>"><i class="fa fa-book fa-fw"></i> Daftar Pesanan</a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-table fa-fw"></i> Menu<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="<?php echo base_url().'Ctrl_admin/menu'?>">Daftar Menu</a>
-                                </li>
-                            </ul>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="<?php echo base_url().'Ctrl_admin/add_menu'?>">Tambah Menu</a>
-                                </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
-                        </li>
-                        <li>
-                            <a href="<?php echo base_url().'Ctrl_admin/feedback'?>"><i class="fa fa-dashboard fa-fw"></i> Feedback Pengunjung</a>
                         </li>
                     </ul>
                     <!-- /#side-menu -->

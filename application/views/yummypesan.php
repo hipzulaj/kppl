@@ -35,11 +35,11 @@
             <p class="pesan p">Kamu sudah dapat membelinya seharga <?php echo "Rp ".number_format($harga, 0, "," , ".") ?>/porsi.</p>
             <form action="<?php echo base_url().'MyController/yummysukses/'.$id_menu; ?>" method="post">
                 <h2 class="text-center">Data Pemesan</h2>
-                <input class="form-control" type="text" name="nama_pemesan" placeholder="Nama Lengkap" required>
+                <input class="form-control" type="text" name="nama_pemesan" placeholder="Nama Lengkap" value="<?php echo $namalengkap?>" required readonly>
                 <div class="form-group"></div>
-                <input class="form-control" type="tel" name="no_telp" placeholder="Kontak" required>
+                <input class="form-control" type="tel" name="no_telp" placeholder="Kontak" value="<?php echo $kontak?>" required readonly>
                 <div class="form-group"></div>
-                <input class="form-control" type="text" name="alamat" placeholder="Alamat" required>
+                <input class="form-control" type="text" name="alamat" placeholder="Alamat" value="<?php echo $alamat?>" required readonly>
                 <div class="form-group"></div>
                 <input class="form-control" type="number" min="1" name="jumlah" placeholder="Porsi" required>
                 <div class="form-group"></div>

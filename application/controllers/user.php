@@ -14,20 +14,18 @@ class user extends CI_Controller {
 
 	public function index()
 	{
-    $username = 'Gilang';//$this->session->userdata('username');
-    $data = $this->user_model->GetPesanan($username);
+    $namapemesan = $this->session->userdata('username');
+    $data = $this->user_model->GetPesanan($namapemesan);
 		$this ->load->view('user_pesanan', array('data' => $data));
 	}
+
+  public function order(){
+    
+  }
 
   public function cancel_order($id){
     $this->user_model->delete_order($id);
     redirect('user');
-  }
-
-  public function menu()
-  {
-    $data = $this-> user_model -> GetMenu();
-		$this ->load->view('admin_menu', array('data' => $data));
   }
 
   public function logout()
