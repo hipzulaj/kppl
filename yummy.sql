@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 10, 2017 at 11:10 AM
+-- Generation Time: Dec 11, 2017 at 12:01 AM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -108,7 +108,8 @@ CREATE TABLE `menu` (
 --
 
 INSERT INTO `menu` (`id_menu`, `nama_menu`, `gambar`, `deskripsi`, `harga`, `timestamp`) VALUES
-('MENU001', 'AYAM SAUS BLACKPEPPER', 'yummyblackpep.JPG', 'Variasi nasi ayam yang dilumuri bumbu lada hitam yang nikmat, dengan sayur-mayur berupa wortel dan juga terdapat mayonaise untuk menambah cita rasa.', 8000, '1496113839'),
+('ASOY', 'MANTAP', 'thumb-1920-78846.jpg', 'IHIW', 999999999, '1512946404'),
+('MENU001', 'AYAM SAUS BLACKPEPPER', 'yummyblackpep.JPG', 'Variasi nasi ayam yang dilumuri bumbu lada hitam yang nikmat, dengan sayur-mayur berupa wortel dan juga terdapat mayonaise untuk menambah cita rasa.', 8000, '1512914684'),
 ('MENU002', 'AYAM SAUS BOLOGNESE', 'yummybolog.JPG', 'Variasi nasi ayam yang dilumuri bumbu bolognese seperti pada spaghetti, dengan sayur-mayur berupa wortel, buncis, dan jagung serta terdapat mayonaise untuk menambah cita rasa.', 8000, '1496113947'),
 ('MENU003', 'AYAM SAUS INGGRIS SPESIAL', 'yummyinggris.JPG', 'Variasi nasi ayam yang dilumuri saus inggris serta dengan nasi merah yang enak, dilengkapi dengan sayur-mayur berupa wortel, buncis, dan jagung, serta terdapat mayonaise untuk menambah cita rasa.', 8000, '1496122563'),
 ('MENU004', 'AYAM CABE CABEAN', 'yummycabe.JPG', 'Variasi nasi ayam yang ditaburi oleh cabe dan garam, menghasilkan perpaduan rasa pedas dan asin yang tidak pernah terbayangkan sebelumnya dan membuat ketagihan.', 12000, '1512449291');
@@ -122,6 +123,7 @@ INSERT INTO `menu` (`id_menu`, `nama_menu`, `gambar`, `deskripsi`, `harga`, `tim
 CREATE TABLE `pesanan` (
   `id_pesanan` varchar(50) NOT NULL,
   `nama_pemesan` text NOT NULL,
+  `username` varchar(255) NOT NULL,
   `no_telp` varchar(50) NOT NULL,
   `alamat` text NOT NULL,
   `menu` text NOT NULL,
@@ -134,14 +136,17 @@ CREATE TABLE `pesanan` (
 -- Dumping data for table `pesanan`
 --
 
-INSERT INTO `pesanan` (`id_pesanan`, `nama_pemesan`, `no_telp`, `alamat`, `menu`, `jumlah`, `total_harga`, `Status_Order`) VALUES
-('1496067610', 'Gilang', '0888', 'Jalan jalan', 'AYAM SIRAM', 5, 40000, 'Belum Dikonfirmasi'),
-('1496067660', 'Gilang lagi', '088888', 'jalan', 'CHICKEN BALLS', 7, 49000, 'Belum Dikonfirmasi'),
-('1496068927', 'Gilang is back', '088801762650', 'Penjaringan Timur V / PD-33', 'UDANG KATSU', 8, 64000, 'Belum Dikonfirmasi'),
-('1496122662', 'Umar', '0888111', 'Jalan Keputih', 'AYAM SAUS BLACKPEPPER', 1, 8000, 'Belum Dikonfirmasi'),
-('1512448297', 'NJUL', '+62 82231376570', 'dimana aja bole', 'AYAM SAUS BLACKPEPPER', 5000, 40000000, 'Belum Dikonfirmasi'),
-('1512449241', 'Paujan', '+62 82231376570', 'dimana aja bole', 'AYAM SAUS INGGRIS SPESIAL', 50000, 400000000, 'Belum Dikonfirmasi'),
-('1512449479', 'SINSIN', '+62 82231376570', 'jalan jalan sore', 'AYAM CABE CABEAN', 1000, 12000000, 'Belum Dikonfirmasi');
+INSERT INTO `pesanan` (`id_pesanan`, `nama_pemesan`, `username`, `no_telp`, `alamat`, `menu`, `jumlah`, `total_harga`, `Status_Order`) VALUES
+('1496067610', 'hipzul achmad jabbar', 'njul', '0888', 'Jalan jalan', 'AYAM SIRAM', 5, 40000, 'Pesanan Selesai'),
+('1496067660', 'Gilang lagi', '', '088888', 'jalan', 'CHICKEN BALLS', 7, 49000, 'Belum Dikonfirmasi'),
+('1496068927', 'Gilang is back', '', '088801762650', 'Penjaringan Timur V / PD-33', 'UDANG KATSU', 8, 64000, 'Belum Dikonfirmasi'),
+('1496122662', 'Umar', '', '0888111', 'Jalan Keputih', 'AYAM SAUS BLACKPEPPER', 1, 8000, 'Belum Dikonfirmasi'),
+('1512448297', 'NJUL', '', '+62 82231376570', 'dimana aja bole', 'AYAM SAUS BLACKPEPPER', 5000, 40000000, 'Belum Dikonfirmasi'),
+('1512449241', 'Paujan', '', '+62 82231376570', 'dimana aja bole', 'AYAM SAUS INGGRIS SPESIAL', 50000, 400000000, 'Belum Dikonfirmasi'),
+('1512449479', 'SINSIN', '', '+62 82231376570', 'jalan jalan sore', 'AYAM CABE CABEAN', 1000, 12000000, 'Belum Dikonfirmasi'),
+('1512903986', 'hipzul achmad jabbar', 'njul', '1321312113', 'awdasd', 'AYAM CABE CABEAN', 10, 120000, 'Belum Dikonfirmasi'),
+('1512914080', 'hipzul achmad jabbar', 'IJUL', '13124234', 'dimana aja bole', 'AYAM SAUS INGGRIS SPESIAL', 100, 800000, 'Belum Dikonfirmasi'),
+('1512919607', 'hipzul achmad jabbar', 'IJUL', '13124234', 'dimana aja bole', 'AYAM SAUS BOLOGNESE', 1, 8000, 'Belum Dibayar');
 
 --
 -- Indexes for dumped tables
