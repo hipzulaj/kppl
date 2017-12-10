@@ -5,6 +5,19 @@ class user_model extends CI_Model {
 	// 	$query = $this->db->get('admin');
 	// 	return $query->result_array();
 	// }
+	function login_authen($username, $password)
+	{
+		$this->db->select('*');
+		$this->db->where('username', $username); //ngecel apakah usernamenya ada di database
+		$this->db->where('password', $password); 
+		$this->db->from('customer');
+		$query = $this->db->get();
+		return $query;
+	}
+
+	function addAcc($data){
+		$this->db->insert('customer',$data);
+	}
 
 	public function GetPesanan($username){
     $this->db->select('id_pesanan, alamat, menu, jumlah, total_harga, Status_Order');

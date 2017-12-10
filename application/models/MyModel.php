@@ -6,21 +6,6 @@ class MyModel extends CI_Model {
 	// 	return $query->result_array();
 	// }
 
-	public function GetPesanan($where=""){
-    $data = $this->db->query('SELECT * FROM pesanan '.$where);
-    return $data -> result_array();
-  }
-
-	public function GetMenu($where=""){
-    $data = $this->db->query('SELECT * FROM menu '.$where);
-    return $data -> result_array();
-  }
-    
-    public function GetFeedback($where=""){
-    $data = $this->db->query('SELECT * FROM feedback '.$where);
-    return $data -> result_array();
-  }
-
 	function addData($data) {
 		$this->db->insert('admin', $data);
 	}
@@ -39,6 +24,21 @@ class MyModel extends CI_Model {
 			return false;
 		}
 	}
+
+	public function GetPesanan($where=""){
+    $data = $this->db->query('SELECT * FROM pesanan '.$where);
+    return $data -> result_array();
+  }
+
+	public function GetMenu($where=""){
+    $data = $this->db->query('SELECT * FROM menu '.$where);
+    return $data -> result_array();
+  }
+    
+    public function GetFeedback($where=""){
+    $data = $this->db->query('SELECT * FROM feedback '.$where);
+    return $data -> result_array();
+  }
 
 	public function insertData($tabelName, $data){
     $res = $this->db->insert($tabelName, $data);

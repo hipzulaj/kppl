@@ -23,6 +23,16 @@
                 <ul class="nav navbar-nav">
                     <li role="presentation"><a href="<?php echo base_url();?>home">MENU</a></li>
                     <li role="presentation"><a href="<?php echo base_url();?>mycontroller/yummyabout">TENTANG</a></li>
+                    <?php if($this->session->userdata('username')) { ?>
+                    <li class="nav-item"> 
+                    <a class="nav-link" href="<?php echo site_url('user/index') ?>">Hi! <?=$this->session->userdata('username')?></a>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="<?php echo site_url('login_user/logout') ?>">Logout</a></li>
+                    <?php } else { ?>
+                    <li class="nav-item">
+                      <a class="nav-link" href="<?php echo site_url('login_user/index') ?>">LOGIN</a>
+                    </li>
+                    <?php } ?>
                 </ul>
             </div>
         </div>

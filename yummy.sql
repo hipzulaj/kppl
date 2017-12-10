@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 10, 2017 at 09:43 AM
+-- Generation Time: Dec 10, 2017 at 11:10 AM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -37,6 +37,29 @@ CREATE TABLE `admin` (
 
 INSERT INTO `admin` (`username`, `password`) VALUES
 ('admin', 'admin');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `customer`
+--
+
+CREATE TABLE `customer` (
+  `username` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `fullname` varchar(255) NOT NULL,
+  `alamat` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `no_hp` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `customer`
+--
+
+INSERT INTO `customer` (`username`, `password`, `fullname`, `alamat`, `email`, `no_hp`) VALUES
+('IJUL', '12345678', 'hipzul achmad jabbar', 'dimana aja bole', 'boy@gmail.com', '13124234'),
+('njul', '12345678', 'hipzul achmad jabbar', 'awdasd', 'hipzulachmadjabbar@g.com', '1321312113');
 
 -- --------------------------------------------------------
 
@@ -128,6 +151,12 @@ INSERT INTO `pesanan` (`id_pesanan`, `nama_pemesan`, `no_telp`, `alamat`, `menu`
 -- Indexes for table `admin`
 --
 ALTER TABLE `admin`
+  ADD PRIMARY KEY (`username`);
+
+--
+-- Indexes for table `customer`
+--
+ALTER TABLE `customer`
   ADD PRIMARY KEY (`username`);
 
 --
