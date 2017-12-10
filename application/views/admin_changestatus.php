@@ -1,3 +1,28 @@
+<?php
+foreach ($order as $o) {
+  $id = $o['id_pesanan'];
+  if($this->input->post('is_submitted')){
+        $id = set_value('id_pesanan');
+        $nama = set_value('nama_pemesan');
+        $notelp = set_value('notelp');
+        $alamat = set_value('alamat');
+        $menu = set_value('menu');
+        $jumlah = set_value('jumlah');
+        $harga = set_value('harga');
+        $status = set_value('status');
+  } else{
+        $id = $o['id_pesanan'];
+        $nama = $o['nama_pemesan'];
+        $notelp = $o['no_telp'];
+        $alamat = $o['alamat'];
+        $menu = $o['menu'];
+        $jumlah = $o['jumlah'];
+        $harga = $o['total_harga'];
+        $status = $o['Status_Order'];
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -6,21 +31,14 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Yummy Admin | Pesanan</title>
+    <title>Yummy Admin | Edit Menu</title>
 
     <!-- Core CSS - Include with every page -->
     <link href="<?php echo base_url().'assets/sb/css/bootstrap.min.css'?>" rel="stylesheet">
     <link href="<?php echo base_url().'assets/sb/font-awesome/css/font-awesome.css'?>" rel="stylesheet">
 
-    <!-- Page-Level Plugin CSS - Tables -->
-    <link href="<?php echo base_url().'assets/sb/css/plugins/dataTables/dataTables.bootstrap.css'?>" rel="stylesheet">
-
     <!-- SB Admin CSS - Include with every page -->
     <link href="<?php echo base_url().'assets/sb/css/sb-admin.css'?>" rel="stylesheet">
-
-    <!-- <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.15/css/jquery.dataTables.css">
-
-    <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.15/js/jquery.dataTables.js"></script> -->
 
 </head>
 
@@ -86,59 +104,71 @@
 
         <div id="page-wrapper">
             <div class="row">
-                <div class="col-lg-12">
-                    <h1 class="page-header">Daftar Pesanan</h1>
+                <div class="col-lg-6">
+                    <h1 class="page-header">Edit Menu</h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
             <!-- /.row -->
             <div class="row">
-                <div class="col-lg-12">
+                <div class="col-lg-6">
                     <div class="panel panel-default">
                         <div class="panel-body">
-                            <div class="table-responsive">
-                                <table class="table table-striped table-bordered table-hover" ><!--id="dataTables-example"-->
-                                    <thead>
-                                        <tr>
-                                            <th style="width:100px">ID Pesanan</th>
-                                            <th>Nama Pemesan</th>
-                                            <th style="width:120px">No. Telepon</th>
-                                            <th>Alamat</th>
-                                            <th style="width:150px">Menu</th>
-                                            <th style="width:50px">Jumlah</th>
-                                            <th style="width:100px">Total Harga</th>
-                                            <th style="width:50px">Status</th>
-                                            <th></th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                      <?php foreach ($data as $p) { ?>
-                                        <tr>
-                                          <td><?php echo $p['id_pesanan'] ?></td>
-                                          <td><?php echo $p['nama_pemesan'] ?></td>
-                                          <td><?php echo $p['no_telp'] ?></td>
-                                          <td><?php echo $p['alamat'] ?></td>
-                                          <td><?php echo $p['menu'] ?></td>
-                                          <td><?php echo $p['jumlah'] ?></td>
-                                          <td><?php echo "Rp ".number_format($p['total_harga'], 0, "," , ".") ?></td>
-                                          <td><?php echo $p['Status_Order'] ?></td>
-                                          <td align='center'>
-                                            <a href="<?php echo base_url().'Ctrl_admin/change_status_order/'.$p['id_pesanan']; ?>">
-                                              <button type="button" class="btn btn-outline btn-primary btn-sm">Ubah Status</button>
-                                            </a>
-                                          </td>
-                                        </tr>
-                                      <?php } ?>
-                                    </tbody>
-                                </table>
+                            <div class="row">
+                                <div class="col-lg-8">
+                                    <!-- <form action="<?php echo base_url().'Ctrl_admin/form_add'?>" method="post" role="form"> -->
+                                    <?php echo form_open('Ctrl_admin/change_status_order/'.$id);?>
+                                        <div class="form-group">
+                                            <label>ID Pesanan</label>
+                                            <input type="text" name="id_pesanan" class="form-control" value="<?php echo $id; ?>" readonly>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Nama Pemesan</label>
+                                            <input type="text" name="nama_pemesan" class="form-control" value="<?php echo $nama; ?>" readonly>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>No Telpon</label>
+                                            <input type="text" name="notelp" class="form-control" value="<?php echo $notelp; ?>" readonly>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Alamat</label>
+                                            <textarea class="form-control" name="alamat" rows="3" readonly><?php echo $alamat; ?></textarea>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Menu</label>
+                                            <input type="text" name="menu" class="form-control" value="<?php echo $menu; ?>" readonly>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Jumlah</label>
+                                            <input type="text" name="jumlah" class="form-control" value="<?php echo $jumlah; ?>" readonly>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Harga</label>
+                                            <input type="text" name="harga" class="form-control" value="<?php echo $harga; ?>" readonly>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-check-label">
+                                              <select class="form-check-input" name="status" value="<?php echo $status; ?>" selected="<?=$status ?>">
+                                              <option value="Belum Dikonfirmasi">Belum Dikonfirmasi</option>
+                                              <option value="Dalam Pembuatan">Dalam Pembuatan</option>
+                                              <option value="Dalam Pengiriman">Dalam Pengiriman</option>
+                                              <option value="Dalam Pengiriman">Pesanan Selesai</option>
+                                              </select>
+                                            </label>
+                                        </div>
+                                        <input type="hidden" name="is_submitted" value="1"/>
+                                        <button type="submit" class="btn btn-primary">Update</button>
+                                    </form>
+                                </div>
+                                <!-- /.col-lg-8 (nested) -->
                             </div>
-                            <!-- /.table-responsive -->
+                            <!-- /.row (nested) -->
                         </div>
                         <!-- /.panel-body -->
                     </div>
                     <!-- /.panel -->
                 </div>
-                <!-- /.col-lg-12 -->
+                <!-- /.col-lg-6 -->
             </div>
             <!-- /.row -->
         </div>
@@ -158,13 +188,6 @@
 
     <!-- SB Admin Scripts - Include with every page -->
     <script src="<?php echo base_url().'assets/sb/js/sb-admin.js'?>"></script>
-
-    <!-- Page-Level Demo Scripts - Tables - Use for reference -->
-    <script>
-    $(document).ready(function() {
-        $('#dataTables-example').dataTable();
-    });
-    </script>
 
 </body>
 

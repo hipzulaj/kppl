@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 06, 2017 at 03:20 AM
+-- Generation Time: Dec 10, 2017 at 09:43 AM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -103,21 +103,22 @@ CREATE TABLE `pesanan` (
   `alamat` text NOT NULL,
   `menu` text NOT NULL,
   `jumlah` int(11) NOT NULL,
-  `total_harga` int(11) NOT NULL
+  `total_harga` int(11) NOT NULL,
+  `Status_Order` varchar(40) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `pesanan`
 --
 
-INSERT INTO `pesanan` (`id_pesanan`, `nama_pemesan`, `no_telp`, `alamat`, `menu`, `jumlah`, `total_harga`) VALUES
-('1496067618', 'Gilang', '0888', 'Jalan jalan', 'AYAM SIRAM', 5, 40000),
-('1496067660', 'Gilang lagi', '088888', 'jalan', 'CHICKEN BALLS', 7, 49000),
-('1496068927', 'Gilang is back', '088801762650', 'Penjaringan Timur V / PD-33', 'UDANG KATSU', 8, 64000),
-('1496122662', 'Umar', '0888111', 'Jalan Keputih', 'AYAM SAUS BLACKPEPPER', 1, 8000),
-('1512448297', 'NJUL', '+62 82231376570', 'dimana aja bole', 'AYAM SAUS BLACKPEPPER', 5000, 40000000),
-('1512449241', 'Paujan', '+62 82231376570', 'dimana aja bole', 'AYAM SAUS INGGRIS SPESIAL', 50000, 400000000),
-('1512449479', 'SINSIN', '+62 82231376570', 'jalan jalan sore', 'AYAM CABE CABEAN', 1000, 12000000);
+INSERT INTO `pesanan` (`id_pesanan`, `nama_pemesan`, `no_telp`, `alamat`, `menu`, `jumlah`, `total_harga`, `Status_Order`) VALUES
+('1496067610', 'Gilang', '0888', 'Jalan jalan', 'AYAM SIRAM', 5, 40000, 'Belum Dikonfirmasi'),
+('1496067660', 'Gilang lagi', '088888', 'jalan', 'CHICKEN BALLS', 7, 49000, 'Belum Dikonfirmasi'),
+('1496068927', 'Gilang is back', '088801762650', 'Penjaringan Timur V / PD-33', 'UDANG KATSU', 8, 64000, 'Belum Dikonfirmasi'),
+('1496122662', 'Umar', '0888111', 'Jalan Keputih', 'AYAM SAUS BLACKPEPPER', 1, 8000, 'Belum Dikonfirmasi'),
+('1512448297', 'NJUL', '+62 82231376570', 'dimana aja bole', 'AYAM SAUS BLACKPEPPER', 5000, 40000000, 'Belum Dikonfirmasi'),
+('1512449241', 'Paujan', '+62 82231376570', 'dimana aja bole', 'AYAM SAUS INGGRIS SPESIAL', 50000, 400000000, 'Belum Dikonfirmasi'),
+('1512449479', 'SINSIN', '+62 82231376570', 'jalan jalan sore', 'AYAM CABE CABEAN', 1000, 12000000, 'Belum Dikonfirmasi');
 
 --
 -- Indexes for dumped tables

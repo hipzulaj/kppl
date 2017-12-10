@@ -100,33 +100,25 @@
                                 <table class="table table-striped table-bordered table-hover" ><!--id="dataTables-example"-->
                                     <thead>
                                         <tr>
-                                            <th style="width:100px">ID Pesanan</th>
-                                            <th>Nama Pemesan</th>
-                                            <th style="width:120px">No. Telepon</th>
-                                            <th>Alamat</th>
-                                            <th style="width:150px">Menu</th>
-                                            <th style="width:50px">Jumlah</th>
-                                            <th style="width:100px">Total Harga</th>
-                                            <th style="width:50px">Status</th>
-                                            <th></th>
+                                            <th style="width:100px" align="center">ID Pesanan</th>
+                                            <th style="width:150px" align="center">Menu</th>
+                                            <th style="width:50px" align="center">Jumlah</th>
+                                            <th style="width:100px" align="center">Total Harga</th>
+                                            <th style="width:100px" align="center">Alamat</th>
+                                            <th style="width:50px" align="center">Status Order</th>
+                                            <th style="width:50px"> </th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                       <?php foreach ($data as $p) { ?>
                                         <tr>
                                           <td><?php echo $p['id_pesanan'] ?></td>
-                                          <td><?php echo $p['nama_pemesan'] ?></td>
-                                          <td><?php echo $p['no_telp'] ?></td>
-                                          <td><?php echo $p['alamat'] ?></td>
                                           <td><?php echo $p['menu'] ?></td>
                                           <td><?php echo $p['jumlah'] ?></td>
                                           <td><?php echo "Rp ".number_format($p['total_harga'], 0, "," , ".") ?></td>
+                                          <td><?php echo $p['alamat'] ?></td>
                                           <td><?php echo $p['Status_Order'] ?></td>
-                                          <td align='center'>
-                                            <a href="<?php echo base_url().'Ctrl_admin/change_status_order/'.$p['id_pesanan']; ?>">
-                                              <button type="button" class="btn btn-outline btn-primary btn-sm">Ubah Status</button>
-                                            </a>
-                                          </td>
+                                          <td align="center"><?=anchor('user/cancel_order/' . $p['id_pesanan'],'Batal Pesan',['class'=>'btn btn-danger btn-sm','onclick'=>'return confirm(\'Apakah Anda Yakin?\')'])?></td>
                                         </tr>
                                       <?php } ?>
                                     </tbody>

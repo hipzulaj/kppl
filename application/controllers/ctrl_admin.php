@@ -175,6 +175,25 @@ class Ctrl_admin extends CI_Controller {
     }
   }
 
+  public function change_status_order($id){
+    $order = $this->MyModel->GetPesanan("where id_pesanan = '$id'");
+    $this->form_validation->set_rules('status', 'Status', 'required');
+
+    foreach ($order as $o) {
+      $res = $o['id_pesanan'];
+    }
+
+    if($this->form_validation->run() == false){
+      $this->load->view('admin_changestatus', array('order' => $order));
+    }
+    else{
+        $confirm = array('Status_Order' => set_value('status'));
+        $where = "id_pesanan = '$res'";
+        $this->MyModel->updateData('pesanan', $confirm, $where);
+        redirect('ctrl_admin/index');
+      }
+  }
+
   public function delete_menu($id_menu)
   {
     $where = array('id_menu' => $id_menu);
