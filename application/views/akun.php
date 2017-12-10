@@ -24,12 +24,14 @@
       <input type="text" placeholder="Nomor HP" name="no_hp">
       <button>create</button>
       <p class="message">Sudah miliki akun? <a href="#">Masuk</a></p>
+      <p class="message"><a href="<?php echo base_url('home'); ?>">Kembali ke Home</a></p>
     </form>
     <form class="login-form" action="<?php echo base_url('login_user/login'); ?>" method="post">
       <input type="text" placeholder="username" name="username">
       <input type="password" placeholder="password" name="password">
       <button>login</button>
       <p class="message">Belum miliki akun? <a href="#">Buat Akun</a></p>
+      <p class="message"><a href="<?php echo base_url('home'); ?>">Kembali ke Home</a></p>
     </form>
   </div>
 </div>

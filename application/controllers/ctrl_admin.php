@@ -6,6 +6,7 @@ class Ctrl_admin extends CI_Controller {
   {
     parent::__construct();
     $this->load->model('MyModel');
+    $this->load->library('upload');
 
     if (!$this->session->userdata('username')) {
       redirect('admin');
@@ -84,29 +85,42 @@ class Ctrl_admin extends CI_Controller {
     $nama_menu = $_POST['nama_menu'];
     $deskripsi = $_POST['deskripsi'];
     $harga = $_POST['harga'];
-    $target_dir = "gambar/";
-		$target_file = $target_dir . basename($_FILES["gambar"]["name"]);
-		$imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
-		if (move_uploaded_file($_FILES["gambar"]["tmp_name"], $target_file)) {
-        echo "The file ". basename( $_FILES["gambar"]["name"]). " has been uploaded.";
-    }	 else {
-        echo "Sorry, there was an error uploading your file.";
-    }
-		$gambar = basename( $_FILES["gambar"]["name"]);
+    
+    $config = array(
+                'upload_path' => './gambar/',
+                'allowed_types' => 'gif|jpg|png|pdf',
+                'max_size' => 15000,
+                'max_width' => 2000,
+                'max_height'=> 2000
+            );
 
-    $menu_kumpul = array(
+    $fileUpload = array();
+    $this->upload->initialize($config);
+
+    if ($this->upload->do_upload('gambar'))
+    {
+      $fileUpload = $this->upload->data();
+      $gambar = $fileUpload['file_name'];
+      $menu_kumpul = array(
       'id_menu' => $id_menu,
       'nama_menu' => $nama_menu,
       'gambar' => $gambar,
       'deskripsi' => $deskripsi,
       'harga' => $harga,
       'timestamp' => time()
-			);
-		$res = $this->MyModel->InsertData('menu',$menu_kumpul);
-    if ($res>=1) {
-    	redirect('Ctrl_admin/menu');
-    } else {
-    	echo "<h2>Data gagal untuk ditambahkan</h2>";
+      );
+      $res = $this->MyModel->InsertData('menu',$menu_kumpul);
+      if ($res>=1) {
+        redirect('Ctrl_admin/menu');
+      } 
+      else {
+        echo "<h2>Data gagal untuk ditambahkan</h2>";
+      }
+    }
+    else
+    {
+      $error = array('error' => $this->upload->display_errors());
+      $this->load->view('admin_addmenu', $error);
     }
 	}
 

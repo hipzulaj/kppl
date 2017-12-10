@@ -33,7 +33,7 @@
             <img class="img menu" style="width:400px; height:360px" src="<?php echo base_url()."gambar/".$gambar ?>">
             <p class="pesan p"><?php echo $deskripsi; ?></p>
             <p class="pesan p">Kamu sudah dapat membelinya seharga <?php echo "Rp ".number_format($harga, 0, "," , ".") ?>/porsi.</p>
-            <form action="<?php echo base_url().'MyController/yummysukses/'.$id_menu; ?>" method="post">
+            <form action="<?php echo base_url().'user/yummysukses/'.$id_menu; ?>" method="post">
                 <h2 class="text-center">Data Pemesan</h2>
                 <input class="form-control" type="text" name="nama_pemesan" placeholder="Nama Lengkap" value="<?php echo $namalengkap?>" required readonly>
                 <div class="form-group"></div>

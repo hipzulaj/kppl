@@ -23,7 +23,7 @@
                 <ul class="nav navbar-nav">
                     <li role="presentation"><a href="<?php echo base_url();?>home">MENU</a></li>
                     <li role="presentation"><a href="<?php echo base_url();?>mycontroller/yummyabout">TENTANG</a></li>
-                    <?php if($this->session->userdata('username')) { ?>
+                    <?php if($this->session->userdata('role')=='customer') { ?>
                     <li class="nav-item"> 
                     <a class="nav-link" href="<?php echo site_url('user/index') ?>">Hi! <?=$this->session->userdata('username')?></a>
                     </li>
@@ -38,8 +38,8 @@
         </div>
     </nav>
     <div class="jumbotron" style="background-image: url('<?php echo base_url();?>assets/img/jumbotron-yummy.jpg')">
-        <h1 class="h1jumbo">Usir rasa laparmu!</h1>
-        <p class="pjumbo">Pilih makanan favoritmu dan usir jauh-jauh rasa laparmu!</p>
+        <h1 class='h1jumbo' align='center'><font color='white'>Usir Rasa Laparmu!</font></h1>
+        <p class='pjumbo' align='center'><font color='white'>Pilih makanan favoritmu dan usir jauh-jauh rasa laparmu!</font></p>
     </div>
     <h1 class="headmenu">MENU TERBARU</h1>
     <div>
@@ -52,7 +52,7 @@
                     <p class="paramenu"><?php echo $d['deskripsi'];?></p>
                     <h3 class="headharga"><?php echo "Rp ".number_format($d['harga'], 0, "," , ".") ?></h3>
                     <div class="btnpesan">
-                        <a href="<?php echo base_url().'MyController/yummypesan/'.$d['id_menu']; ?>">
+                        <a href="<?php echo base_url().'user/yummypesan/'.$d['id_menu']; ?>">
                           <button class="btn btn-default" type="button">Pesan sekarang</button>
                         </a>
                     </div>

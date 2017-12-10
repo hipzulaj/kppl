@@ -122,11 +122,15 @@
                                           <td><?php echo $p['jumlah'] ?></td>
                                           <td><?php echo "Rp ".number_format($p['total_harga'], 0, "," , ".") ?></td>
                                           <td><?php echo $p['Status_Order'] ?></td>
+                                          <?php if($p['Status_Order'] != "Pesanan Selesai"){ ?>
                                           <td align='center'>
                                             <a href="<?php echo base_url().'Ctrl_admin/change_status_order/'.$p['id_pesanan']; ?>">
                                               <button type="button" class="btn btn-outline btn-primary btn-sm">Ubah Status</button>
                                             </a>
                                           </td>
+                                          <?php } else{ ?>
+                                          <td align='center'><font color='green'>Pesanan Telah Selesai</font></td>
+                                          <?php } ?>
                                         </tr>
                                       <?php } ?>
                                     </tbody>

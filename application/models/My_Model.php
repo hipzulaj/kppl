@@ -7,7 +7,7 @@ class My_model extends CI_Model {
 		$data = $this->db->query('SELECT * FROM menu '.$where);
 		return $data->result_array();
 	}
-
+	
 	public function InsertData($tableName, $data){
 		$res = $this->db->insert($tableName, $data);
 		return $res;

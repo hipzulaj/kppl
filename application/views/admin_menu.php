@@ -114,7 +114,6 @@
                                           </td>
                                           <td><?php echo $m['deskripsi'] ?></td>
                                           <td><?php echo "Rp ".number_format($m['harga'], 0, "," , ".") ?></td>
-                                          <!-- <td><?php echo $m['harga'] ?></td> -->
                                           <td align='center'>
                                             <a href="<?php echo base_url().'Ctrl_admin/edit_menu/'.$m['id_menu']; ?>">
                                               <button type="button" class="btn btn-outline btn-primary btn-sm">Edit</button>

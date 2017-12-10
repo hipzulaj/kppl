@@ -152,7 +152,7 @@ foreach ($order as $o) {
                                               <option value="Belum Dikonfirmasi">Belum Dikonfirmasi</option>
                                               <option value="Dalam Pembuatan">Dalam Pembuatan</option>
                                               <option value="Dalam Pengiriman">Dalam Pengiriman</option>
-                                              <option value="Dalam Pengiriman">Pesanan Selesai</option>
+                                              <option value="Pesanan Selesai">Pesanan Selesai</option>
                                               </select>
                                             </label>
                                         </div>

@@ -99,11 +99,12 @@ body {
 .h1jumbo {
   margin-top:0px;
   padding-top:15px;
-  color: white;
+  text-shadow: 2px 2px 4px #000000;
 }
 
 .pjumbo {
   color: white;
+  text-shadow: 2px 2px 4px #000000;
 }
 
 .btnpesan {
