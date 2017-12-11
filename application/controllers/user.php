@@ -23,7 +23,7 @@ class user extends CI_Controller {
 
   function yummypesan($id_menu) {
     $user = $this->session->userdata('username');
-    $menu = $this->MyModel->GetYummyEatery("where id_menu = '$id_menu'");
+    $menu = $this->MyModel->GetMenu("where id_menu = '$id_menu'");
     $customer = $this->user_model->GetDataCus("where username = '$user'");
     $data = array(
       "id_menu" => $menu[0]['id_menu'],
@@ -39,7 +39,7 @@ class user extends CI_Controller {
     }
 
   function yummysukses($id_menu) {
-    $menu = $this->MyModel-> GetYummyEatery("where id_menu = '$id_menu'");
+    $menu = $this->MyModel-> GetMenu("where id_menu = '$id_menu'");
     $user = $this->session->userdata('username');
 
     $nama_pemesan = $_POST['nama_pemesan'];

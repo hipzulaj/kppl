@@ -11,7 +11,7 @@ class MyController extends CI_Controller {
 	}
 
 	function index() {
-		$data = $this->MyModel->GetYummyEatery();
+		$data = $this->MyModel->GetMenu();
 		$this ->load->view('yummy', array('data' => $data));
 	}
 

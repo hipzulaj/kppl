@@ -60,10 +60,7 @@
                 <div class="sidebar-collapse">
                     <ul class="nav" id="side-menu">
                         <li>
-                            <a href="<?php echo base_url().'Ctrl_admin/index'?>"><i class="fa fa-book fa-fw"></i> Daftar Pesanan</a>
-                        </li>
-                        <li>
-                            <a href="<?php echo base_url().'Ctrl_admin/index'?>"><i class="fa fa-edit fa-fw"></i> Pemabayaran</a>
+                            <a href="<?php echo base_url().'user/index'?>"><i class="fa fa-book fa-fw"></i> Daftar Pesanan</a>
                         </li>
                     </ul>
                     <!-- /#side-menu -->

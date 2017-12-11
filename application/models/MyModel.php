@@ -10,11 +10,6 @@ class MyModel extends CI_Model {
 		$this->db->insert('admin', $data);
 	}
 
-	public function GetYummyEatery($where=""){
-		$data = $this->db->query('SELECT * FROM menu '.$where);
-		return $data->result_array();
-	}
-
 	public function GetPesanan($where=""){
     $data = $this->db->query('SELECT * FROM pesanan '.$where);
     return $data -> result_array();
