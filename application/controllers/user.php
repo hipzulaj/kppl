@@ -5,6 +5,7 @@ class user extends CI_Controller {
   function __construct()
   {
     parent::__construct();
+    $this->load->library('upload');
     $this->load->model('user_model');
     $this->load->model('MyModel');
 
@@ -64,6 +65,27 @@ class user extends CI_Controller {
       } else {
       echo "<h2>Data gagal untuk ditambahkan</h2>";
     }
+  }
+
+  public function addPayment($idPesanan)
+  {
+                $config['upload_path']          = './gambar/buktitf/';
+                $config['allowed_types']        = 'jpg|png|jpeg';
+                $config['max_size']             = 10000000;
+                $config['max_width']            = 10000000;
+                $config['max_height']           = 100000000;
+                $config['file_name']   = $idPesanan . '.jpg';
+                $config['overwrite']    = TRUE;
+
+                $this->upload->initialize($config);
+                if ( ! $this->upload->do_upload('foto_payment'))
+                {
+                    echo $this->upload->display_errors();
+                }
+                else
+                {
+                   $this->index();
+                }
   }
 
   public function cancel_order($id){

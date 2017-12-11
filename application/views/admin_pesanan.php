@@ -103,27 +103,25 @@
                                 <table class="table table-striped table-bordered table-hover" ><!--id="dataTables-example"-->
                                     <thead>
                                         <tr>
-                                            <th style="width:100px">ID Pesanan</th>
-                                            <th>Nama Pemesan</th>
+                                            <th style="width:200px">Nama Pemesan</th>
                                             <th style="width:120px">No. Telepon</th>
-                                            <th>Alamat</th>
                                             <th style="width:150px">Menu</th>
                                             <th style="width:50px">Jumlah</th>
                                             <th style="width:100px">Total Harga</th>
-                                            <th style="width:50px">Status</th>
-                                            <th></th>
+                                            <th style="width:200px">Bukti Pembayaran DP</th>
+                                            <th style="width:100px">Status</th>
+                                            <th style="width:50px">Sunting</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                       <?php foreach ($data as $p) { ?>
                                         <tr>
-                                          <td><?php echo $p['id_pesanan'] ?></td>
                                           <td><?php echo $p['nama_pemesan'] ?></td>
                                           <td><?php echo $p['no_telp'] ?></td>
-                                          <td><?php echo $p['alamat'] ?></td>
                                           <td><?php echo $p['menu'] ?></td>
                                           <td><?php echo $p['jumlah'] ?></td>
                                           <td><?php echo "Rp ".number_format($p['total_harga'], 0, "," , ".") ?></td>
+                                          <td> <img style="width:200px" src="<?php echo base_url('gambar/buktitf/'). $p['id_pesanan'] .".jpg"; ?>"></td>
                                           <td><?php echo $p['Status_Order'] ?></td>
                                           <?php if($p['Status_Order'] != "Pesanan Selesai"){ ?>
                                           <td align='center'>

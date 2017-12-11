@@ -94,6 +94,7 @@
                                             <th style="width:50px" align="center">Jumlah</th>
                                             <th style="width:100px" align="center">Total Harga</th>
                                             <th style="width:100px" align="center">Alamat</th>
+                                            <th style="width:100px" align="center">Bukti Pembayaran DP</th>
                                             <th style="width:50px" align="center">Status Order</th>
                                             <th style="width:50px"> </th>
                                         </tr>
@@ -106,6 +107,14 @@
                                           <td><?php echo $p['jumlah'] ?></td>
                                           <td><?php echo "Rp ".number_format($p['total_harga'], 0, "," , ".") ?></td>
                                           <td><?php echo $p['alamat'] ?></td>
+                                          <?php echo form_open_multipart('user/addPayment/'. $p['id_pesanan']); ?>  
+                                          <td>
+                                           <img style="width:100px" src="<?php echo base_url('gambar/buktitf/'). $p['id_pesanan'] .".jpg"; ?>">
+                                           <br>
+                                          <input type="file" class="form-control" name="foto_payment" id="foto_payment"> 
+                                          <br>
+                                          <button type="submit" class="btn btn-template-main"><i class="fa fa-user-md"></i> Add Bukti Pembayaran</button></td>
+                                          <?php echo form_close(); ?>
                                           <td><?php echo $p['Status_Order'] ?></td>
                                           <td align="center"><?=anchor('user/cancel_order/' . $p['id_pesanan'],'Batal Pesan',['class'=>'btn btn-danger btn-sm','onclick'=>'return confirm(\'Apakah Anda Yakin?\')'])?></td>
                                         </tr>
