@@ -5,14 +5,35 @@ class user_model extends CI_Model {
 	// 	$query = $this->db->get('admin');
 	// 	return $query->result_array();
 	// }
-	function login_authen($username, $password)
+	function authen_customer($username, $password)
 	{
 		$this->db->select('*');
 		$this->db->where('username', $username); //ngecel apakah usernamenya ada di database
 		$this->db->where('password', $password); 
 		$this->db->from('customer');
 		$query = $this->db->get();
-		return $query;
+		
+		if ($query->num_rows() == 1) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+
+	function authen_admin($username, $password) {
+		$this->db->select('*');
+		$this->db->where('username', $username);
+		$this->db->where('password', $password);
+		$this->db->from('admin');
+		$query = $this->db->get();
+
+    if ($query->num_rows() == 1) {
+			return true;
+		}
+		else {
+			return false;
+		}
 	}
 
 	function addAcc($data){
@@ -20,13 +41,13 @@ class user_model extends CI_Model {
 	}
 
 	public function GetPesanan($username){
-    $this->db->select('id_pesanan, alamat, menu, jumlah, total_harga, Status_Order');
-    $this->db->from('pesanan');
- 	$this->db->where('username', $username);
- 	$data = $this->db->get();
+	    $this->db->select('id_pesanan, alamat, menu, jumlah, total_harga, Status_Order');
+	    $this->db->from('pesanan');
+	 	$this->db->where('username', $username);
+	 	$data = $this->db->get();
 
-    return $data->result_array();
-  	}
+	    return $data->result_array();
+	  	}
 
   	public function GetDataCus($where=""){
 		$data = $this->db->query('SELECT * FROM customer '.$where);

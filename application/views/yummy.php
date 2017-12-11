@@ -28,9 +28,12 @@
                     <a class="nav-link" href="<?php echo site_url('user/index') ?>">Hi! <?=$this->session->userdata('username')?></a>
                     </li>
                     <li class="nav-item"><a class="nav-link" href="<?php echo site_url('login_user/logout') ?>">Logout</a></li>
-                    <?php } else { ?>
+                    <?php } elseif($this->session->userdata('role')=='admin') { ?>
                     <li class="nav-item">
-                      <a class="nav-link" href="<?php echo site_url('login_user/index') ?>">LOGIN</a>
+                      <a class="nav-link" href="<?php echo site_url('ctrl_admin/index') ?>">Hi! <font color='green'><?=$this->session->userdata('username')?></font></a>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="<?php echo site_url('login_user/logout') ?>">Logout</a></li>
+                    <?php } else{ ?> <li class="nav-item"><a class="nav-link" href="<?php echo site_url('login_user/index') ?>">LOGIN</a>
                     </li>
                     <?php } ?>
                 </ul>

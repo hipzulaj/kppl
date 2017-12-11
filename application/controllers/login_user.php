@@ -55,26 +55,48 @@ class login_user extends CI_Controller {
 		$username = $this->input->post('username');
 		$password = $this->input->post('password');
 		
-		$isLogin = $this->user_model->login_authen($username, $password);
-		$iyalogin = $isLogin->result_array();
+		$isLogin = $this->user_model->authen_admin($username, $password);
 
-		if ($isLogin->num_rows()>0) {
+		//$iyalogin = $isLogin->result_array();
+
+		if ($isLogin) {
 			$data_session = array(
 							'username' => $username,
-							'role' => "customer");
+							'role' => "admin");
 			$this->session->set_userdata($data_session);
-			redirect('home'); 
+			redirect('Ctrl_admin/index'); 
 		}
+		elseif($isLogin==FALSE){
+			$isLogin = $this->user_model->authen_customer($username, $password);
+			if ($isLogin == true) {
+		        $data_session = array(
+							'username' => $username,
+							'role' => "customer");
+				$this->session->set_userdata($data_session);
+		        //echo $this->session->userdata('username');
+		        redirect('user/index');
+		    }
+		    else echo "Username dan Password Salah";
+    	}
 		else{
 			echo "username dan password salah";
 		}
 	}
 
 	function logout(){
-                $this->session->unset_userdata('username');
-                $this->session->unset_userdata('role');
-                 $this->session->unset_userdata('password');
-		$this->session->sess_destroy();
-		redirect('home');
+		if($this->session->userdata('role')=='customer'){
+	        $this->session->unset_userdata('username');
+	        $this->session->unset_userdata('role');
+	        $this->session->unset_userdata('password');
+			$this->session->sess_destroy();
+			redirect('home');
+		}
+		else{
+			$this->session->unset_userdata('username');
+	        $this->session->unset_userdata('role');
+	        $this->session->unset_userdata('password');
+			$this->session->sess_destroy();
+			redirect('home');
+		}		
 	}
 }   

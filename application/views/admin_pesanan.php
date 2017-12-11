@@ -45,10 +45,13 @@
                   <span>Welcome, <?php echo $this->session->userdata('username'); ?>!</span>
                 </li>
                 <li>
+                    <a href="<?php echo site_url('MyController/index')?>" title="HOME">HOME</a>
+                </li>
+                <li>
                     <a href="<?php echo base_url().'Ctrl_admin/change_password'?>" title="Ganti Password"><i class="fa fa-edit fa-fw"></i></a>
                 </li>
                 <li>
-                    <a href="<?php echo base_url().'Ctrl_admin/logout'?>" title="Keluar"><i class="fa fa-power-off fa-fw"></i></a>
+                    <a href="<?php echo base_url().'login_user/logout'?>" title="Keluar"><i class="fa fa-power-off fa-fw"></i></a>
                 </li>
             </ul>
             <!-- /.navbar-top-links -->

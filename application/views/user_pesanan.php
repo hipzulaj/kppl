@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Yummy Admin | Pesanan</title>
+    <title>Yummy Customer | Pesanan</title>
 
     <!-- Core CSS - Include with every page -->
     <link href="<?php echo base_url().'assets/sb/css/bootstrap.min.css'?>" rel="stylesheet">
@@ -61,6 +61,9 @@
                     <ul class="nav" id="side-menu">
                         <li>
                             <a href="<?php echo base_url().'Ctrl_admin/index'?>"><i class="fa fa-book fa-fw"></i> Daftar Pesanan</a>
+                        </li>
+                        <li>
+                            <a href="<?php echo base_url().'Ctrl_admin/index'?>"><i class="fa fa-edit fa-fw"></i> Pemabayaran</a>
                         </li>
                     </ul>
                     <!-- /#side-menu -->

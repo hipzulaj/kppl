@@ -8,8 +8,8 @@ class Ctrl_admin extends CI_Controller {
     $this->load->model('MyModel');
     $this->load->library('upload');
 
-    if (!$this->session->userdata('username')) {
-      redirect('admin');
+    if ($this->session->userdata('role')!='admin') {
+      redirect('login_user/index');
     }
   }
 

@@ -6,7 +6,7 @@ class user extends CI_Controller {
   {
     parent::__construct();
     $this->load->model('user_model');
-    $this->load->model('My_Model');
+    $this->load->model('MyModel');
 
     if ($this->session->userdata('role')!='customer') { //!$this->session->userdata('username') && 
       redirect('login_user/index');
@@ -22,7 +22,7 @@ class user extends CI_Controller {
 
   function yummypesan($id_menu) {
     $user = $this->session->userdata('username');
-    $menu = $this->My_Model->GetYummyEatery("where id_menu = '$id_menu'");
+    $menu = $this->MyModel->GetYummyEatery("where id_menu = '$id_menu'");
     $customer = $this->user_model->GetDataCus("where username = '$user'");
     $data = array(
       "id_menu" => $menu[0]['id_menu'],
@@ -38,7 +38,7 @@ class user extends CI_Controller {
     }
 
   function yummysukses($id_menu) {
-    $menu = $this-> My_Model -> GetYummyEatery("where id_menu = '$id_menu'");
+    $menu = $this->MyModel-> GetYummyEatery("where id_menu = '$id_menu'");
     $user = $this->session->userdata('username');
 
     $nama_pemesan = $_POST['nama_pemesan'];
@@ -56,9 +56,9 @@ class user extends CI_Controller {
       'menu' => $menu[0]['nama_menu'],
         'jumlah' => $jumlah,
       'total_harga' => $total_harga,
-      'Status_Order' => "Belum Dikonfirmasi"
+      'Status_Order' => "Belum Dibayar"
       );
-    $res = $this->My_Model->InsertData('pesanan',$data_pemesan);
+    $res = $this->MyModel->InsertData('pesanan',$data_pemesan);
       if ($res>=1) {
         $this->load->view('yummysukses');
       } else {
@@ -69,12 +69,5 @@ class user extends CI_Controller {
   public function cancel_order($id){
     $this->user_model->delete_order($id);
     redirect('user');
-  }
-
-  public function logout()
-  {
-    $this->session->unset_userdata('username');
-    $this->session->sess_destroy();
-    redirect('admin');
   }
 }

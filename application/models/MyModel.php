@@ -10,19 +10,9 @@ class MyModel extends CI_Model {
 		$this->db->insert('admin', $data);
 	}
 
-	function authentication($username, $password) {
-		$this->db->select('*');
-		$this->db->where('username', $username);
-		$this->db->where('password', $password);
-		$this->db->from('admin');
-		$query = $this->db->get();
-
-    if ($query->num_rows() == 1) {
-			return true;
-		}
-		else {
-			return false;
-		}
+	public function GetYummyEatery($where=""){
+		$data = $this->db->query('SELECT * FROM menu '.$where);
+		return $data->result_array();
 	}
 
 	public function GetPesanan($where=""){
